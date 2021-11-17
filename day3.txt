@@ -1,24 +1,59 @@
-public class Food {
-	public String name;
-	public String type;
+public class Food {				//This is class food and it is public/can be called upon
 
-	public Food(String name, String type) {
-		this.name = name;
-		this.type = type;
+	public String name;			//String variable "name" is created but not declared
+	
+	public String type;			//String variable "type" is created but not declared
+
+	public Food(String name, String type) { // Object Food contains two parameters: a string varaible 						  //	"name" and another string variable 'type". Both will be 						//	declared when object is instantiated.
+		this.name = name;		// The paramatized string variable "name" will equal the 						 // public string variable "name" 
+		this.type = type;		// The paramatized string variable "type" will equal the 
+						// public string variable "type" 
 	}
 
-	public void cook() {
-		if (!name.contains("cooked")) {
-			name = "cooked " + name;
+	public void cook() {			  // create method cook
+		if (!name.contains("cooked")) {   // if the public string "name" DOES NOT contain the word 						     // cooked, this statement is true, run method
+			name = "cooked " + name;  // Public string "name" will be declared as cooked "name".
 		}
 	}
 }
 
-public class Main {
+public class Main {				  // Create class called Main
+	public static void main(String[] args) {  
+		Food myFood = new Food("potato", "vegetable"); //The variable myFood is under the Food class 								    // and is equal to a new object "food" with 							       //the given arguments.
+		myFood.cook();				       // The object myFood is calling upon the 							       // method cook from the Food class
+
+		System.out.println(myFood.name);		// Print to the console the name of the 								//object myFood.
+	}
+}
+/*
+The goal of this code to be able to create food by passing in the arguments of what is the name of the food and the type of food. Then the food object is capable of being cooked by using the cook method, as long as the food is not cooked already. The method will change the food object's "name" to  "cooked name".
+What can be added is another if statment that says if name DOES contain the word "cooked", the "name" will equal "overcooked name".
+
+Ex.
+
+public void cook() {	
+		if (name.contains("cooked")) { 
+		//name = "overcooked" + name; - this causes output name to be overcooked cooked name
+		name = "over" + name;
+		}
+		if (!name.contains("cooked")) {   						    
+			name = "cooked " + name;  							  
+		}
+public class main {
 	public static void main(String[] args) {
 		Food myFood = new Food("potato", "vegetable");
 		myFood.cook();
 
 		System.out.println(myFood.name);
+	
+		Food myFood1 = new Food(" A cooked potato", "vegetable");
+		myFood1.cook();
+
+		System.out.println(myFood1.name);
 	}
 }
+
+ myFood's name "Potato" after being cooked, will be "Cooked Potato"
+ myFood1's name "Cooked Potato" after bring cooked, will be "Overcooked Potato"
+ */
+		
